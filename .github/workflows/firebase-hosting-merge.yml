@@ -12,7 +12,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: |
-          echo '${{secrets.AA}}' >> a.json
+          echo '${{secrets.AA}}' >> src/a.json
       - run: npm ci && npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
