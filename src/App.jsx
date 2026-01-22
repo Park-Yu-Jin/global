@@ -8,6 +8,7 @@ function App() {
     <>
       <h1>{AA.message}</h1>
       <h1>{AA.test}</h1>
+      <h2>{AA.data}</h2>
     </>
   )
 }
