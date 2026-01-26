@@ -8,16 +8,21 @@ on:
 jobs:
   update:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
 
-      - name: Run scheduled task
-      - run: |
-          echo '${{secrets.AA}}' >> src/a.json
-          echo '${{secrets.js}}' >> src/firebase.js
-      - run: npm ci && npm run build
+      - name: Create JSON and Firebase files
+        run: |
+          echo '${{ secrets.AA }}' > src/a.json
+          echo '${{ secrets.js }}' > src/firebase.js
 
-      - name: Commit changes
+      - name: Install dependencies and build
+        run: |
+          npm ci
+          npm run build
+
+      - name: Commit and push changes
         run: |
           git config user.name "Park-Yu-Jin"
           git config user.email "lits111@naver.com"
