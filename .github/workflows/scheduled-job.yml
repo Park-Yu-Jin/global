@@ -15,7 +15,7 @@ jobs:
       - run: |
           echo '${{secrets.AA}}' >> src/a.json
           echo '${{secrets.js}}' >> src/firebase.js
-        run: npm ci && npm run build
+      - run: npm ci && npm run build
 
       - name: Commit changes
         run: |
