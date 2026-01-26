@@ -1,31 +1,12 @@
-name: Scheduled Job
+name: Simple Schedule Test
 
 on:
   schedule:
-    - cron: '0 * * * *'  # 5분마다 실행
+    - cron: '0 * * * *'  # 매 정각 실행
   workflow_dispatch:
 
 jobs:
-  update:
+  test:
     runs-on: ubuntu-latest
-
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Create JSON and Firebase files
-        run: |
-          echo '${{ secrets.AA }}' > src/a.json
-          echo '${{ secrets.js }}' > src/firebase.js
-
-      - name: Install dependencies and build
-        run: |
-          npm ci
-          npm run build
-
-      - name: Commit and push changes
-        run: |
-          git config user.name "Park-Yu-Jin"
-          git config user.email "lits111@naver.com"
-          git add .
-          git commit -m "chore: auto update data" || exit 0
-          git push
+      - run: echo "Scheduled run at $(date -u)"
