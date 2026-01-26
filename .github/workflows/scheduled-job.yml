@@ -12,10 +12,10 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run scheduled task
-        run: 
+      - run: |
           echo '${{secrets.AA}}' >> src/a.json
           echo '${{secrets.js}}' >> src/firebase.js
-          npm ci && npm run build
+        run: npm ci && npm run build
 
       - name: Commit changes
         run: |
