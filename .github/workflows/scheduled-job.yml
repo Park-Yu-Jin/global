@@ -1,0 +1,22 @@
+name: Scheduled Job
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'  # 5분마다 실행
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Run scheduled task
+        run: node scripts/update-data.js
+
+      - name: Commit changes
+        run: |
+          git config user.name "Park-Yu-Jin"
+          git config user.email "lits111@naver.com"
+          git add .
+          git commit -m "chore: auto update data" || exit 0
+          git push
