@@ -7,7 +7,7 @@ function App() {
   return (
     <>
     <h1>{count}</h1>
-    <button onClick={()=>add(setCount)}>클릭1234</button>
+    <button onClick={()=>add(setCount)}>클릭122334</button>
       <h1>{AA.message}</h1>
       <h1>{AA.test}</h1>
       <h2>{AA.date}</h2>
