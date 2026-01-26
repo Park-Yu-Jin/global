@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
 
       - name: Run scheduled task
-        run: npm run build
+        run: npm ci && npm run build
 
       - name: Commit changes
         run: |
